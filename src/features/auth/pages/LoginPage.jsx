@@ -103,19 +103,40 @@ function LoginPage() {
             borderRadius: "10px",
             textAlign: "center",
         },
+        dividerContainer: {
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            marginTop: "8px",
+            marginBottom: "4px",
+        },
+
+        dividerLine: {
+            flex: 1,
+            height: "1px",
+            backgroundColor: "rgba(148, 163, 184, 0.2)",
+        },
+
+        dividerText: {
+            color: "#64748B",
+            fontSize: "13px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+        },
+
         footer: {
-            marginTop: "12px",
             textAlign: "center",
             color: "#94A3B8",
             fontSize: "14px",
-            fontWeight: "500",
+            lineHeight: "22px",
         },
-        
+
         link: {
             color: "#8B5CF6",
             textDecoration: "none",
             fontWeight: "700",
-            transition: "color 0.2s ease",
+            transition: "all .2s ease",
         },
     };
 
@@ -228,11 +249,23 @@ function LoginPage() {
                             : "Sign In"}
                     </button>
 
+                    <div style={styles.dividerContainer}>
+                        <div style={styles.dividerLine} />
+                        <span style={styles.dividerText}>or</span>
+                        <div style={styles.dividerLine} />
+                    </div>
+
                     <div style={styles.footer}>
-                        Don't have an account?
+                        Don't have an account?{" "}
                         <Link
                             to="/register"
                             style={styles.link}
+                            onMouseEnter={(e) => {
+                                e.target.style.color = "#A78BFA";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.color = "#8B5CF6";
+                            }}
                         >
                             Create Account
                         </Link>

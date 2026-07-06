@@ -120,19 +120,42 @@ function RegisterPage() {
             fontSize: "14px",
             margin: 0,
         },
+        dividerContainer: {
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            marginTop: "8px",
+            marginBottom: "4px",
+        },
+
+        dividerLine: {
+            flex: 1,
+            height: "1px",
+            backgroundColor: "rgba(148, 163, 184, 0.2)",
+        },
+
+        dividerText: {
+            color: "#64748B",
+            fontSize: "13px",
+            fontWeight: "600",
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+        },
+
         footer: {
             textAlign: "center",
             color: "#94A3B8",
             fontSize: "14px",
+            lineHeight: "22px",
         },
+
         link: {
             color: "#8B5CF6",
             textDecoration: "none",
-            fontWeight: "600",
-            marginLeft: "4px",
+            fontWeight: "700",
+            transition: "all .2s ease",
         },
     };
-
 
     const handleFocus = (e) => {
         e.target.style.borderColor = "#7C3AED";
@@ -300,11 +323,23 @@ function RegisterPage() {
                         {loading ? "Creating..." : "Create Account"}
                     </button>
                     
+                    <div style={styles.dividerContainer}>
+                        <div style={styles.dividerLine} />
+                        <span style={styles.dividerText}>or</span>
+                        <div style={styles.dividerLine} />
+                    </div>
+
                     <div style={styles.footer}>
-                        Already have an account?
+                        Already have an account?{" "}
                         <Link
                             to="/login"
                             style={styles.link}
+                            onMouseEnter={(e) => {
+                                e.target.style.color = "#A78BFA";
+                            }}
+                            onMouseLeave={(e) => {
+                                e.target.style.color = "#8B5CF6";
+                            }}
                         >
                             Sign In
                         </Link>
