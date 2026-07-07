@@ -7,6 +7,7 @@ import "./styles/globals.css";
 
 import { setupInterceptors } from "./shared/api/interceptors";
 
+
 setupInterceptors();
 
 ReactDOM.createRoot(document.getElementById("root")).render(

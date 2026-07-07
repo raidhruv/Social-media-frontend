@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
-import { login } from "../services/authService";
 import { Link } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 function LoginPage() {
 
     const navigate = useNavigate();
+    const auth = useAuth();
     const location = useLocation();
 
     const [form, setForm] = useState({
@@ -156,11 +156,12 @@ function LoginPage() {
 
         try {
 
-            const response = await login(form);
+            const response = await auth.login(form);
 
             console.log(response);
+            console.log(auth);
 
-            navigate("/");
+            //navigate("/");
 
         } catch (err) {
 
